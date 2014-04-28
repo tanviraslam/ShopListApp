@@ -10,9 +10,11 @@ $(document).ready(function(){
 	//Adding item. Check for when the input is empty
 	$('.additem').click(function(){
 		var $iteminput = $('#iteminput');
-		var itemHtml = '<div class="listitem"><div class="content">'+$iteminput.val()+'</div><i class="fa fa-check tick fa-2x"></i><i class="fa fa-times cross fa-2x"></i></div>'
-		$('#results').append(itemHtml);
-		$iteminput.val("");
+		if($iteminput.val()){
+			var itemHtml = '<div class="listitem"><div class="content">'+$iteminput.val()+'</div><i class="fa fa-check tick fa-2x"></i><i class="fa fa-times cross fa-2x"></i></div>'
+			$('#results').append(itemHtml);
+			$iteminput.val("");
+		}
 	});
 
 	//Selecting item in result list
@@ -41,6 +43,9 @@ $(document).ready(function(){
 
 	$(document.body).on('click','.cross',function(){
 		$(this).css("color","red");
-		$(this).parent().remove();
+		var $parent = $(this).parent();
+		$parent.fadeTo('slow',0.0, function(){
+			$(this).remove();
+		});
 	});
 });
