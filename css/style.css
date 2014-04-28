@@ -67,6 +67,8 @@ form{
 	display: inline-block;
 	width:100%;
 	opacity: 1;
+	font-family: cursive;
+	font-style: italic;
 }
 
 .tick, .cross{
@@ -134,6 +136,7 @@ input[type="text"]{
 	margin-right: 10px;
 	border: 5px solid #1ABC9C;
 	text-align: center;
+	font-size: 35px;
 }
 
 input[type="text"]:focus{

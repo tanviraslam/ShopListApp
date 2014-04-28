@@ -38,13 +38,15 @@ $(document).ready(function(){
 	$(document.body).on('click','.tick',function(){
 		$(this).css("color","#fff");
 		$(this).next().css("color","#fff");
-		$(this).parent().addClass('taskdone').children('.content').css("text-decoration","line-through");
+		var $parent = $(this).parent();
+		$parent.addClass('taskdone').children('.content').css("text-decoration","line-through");
+		
 	});
 
 	$(document.body).on('click','.cross',function(){
 		$(this).css("color","red");
 		var $parent = $(this).parent();
-		$parent.fadeTo('slow',0.0, function(){
+		$parent.fadeTo('slow',0.0, function(e){
 			$(this).remove();
 		});
 	});
