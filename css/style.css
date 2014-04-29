@@ -1,6 +1,7 @@
 
 html{
 	background: url(../img/background2.png);
+	background-repeat: no-repeat;
 	-webkit-background-size: cover;
 	background-size: cover;
 }
