@@ -9,13 +9,17 @@ $(document).ready(function(){
 
 	//Adding item. Check for when the input is empty
 	$('.additem').click(function(){
-		var $iteminput = $('#iteminput');
-		if($iteminput.val()){
-			var itemHtml = '<div class="listitem"><div class="content">'+$iteminput.val()+'</div><i class="fa fa-check tick fa-2x"></i><i class="fa fa-times cross fa-2x"></i></div>'
-			$('#results').append(itemHtml);
-			$iteminput.val("");
-		}
+		addItem();
 	});
+
+	//Adding item via the return key
+	$('#iteminput').keydown(function(event) {
+		if(event.which === 13) {
+			event.preventDefault();
+			event.stopPropagation();
+			addItem();
+		}
+	});;
 
 	//Selecting item in result list
 	$(document.body).on('click','.content',function(e){
@@ -51,3 +55,15 @@ $(document).ready(function(){
 		});
 	});
 });
+
+
+function addItem(){
+	var $iteminput = $('#iteminput');
+	if($iteminput.val()){
+		var itemHtml = '<div class="listitem"><div class="content">'+$iteminput.val()+'</div><i class="fa fa-check tick fa-2x"></i><i class="fa fa-times cross fa-2x"></i></div>';
+		$('#results').append(itemHtml);
+		$iteminput.val("");
+	}else{
+		alertify.alert('Please enter an item');
+	}
+}
