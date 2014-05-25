@@ -14,6 +14,11 @@ html{
 	color: white;
 	font-size: 375%;
 	margin:0 auto;
+	text-shadow: 3px 6px 3px black;
+}
+
+#logo:hover{
+	cursor: pointer;
 }
 
 .itementry{
@@ -34,7 +39,7 @@ form{
 }
 
 #results{
-	border: 1px solid black;
+	/*border: 1px solid black;*/
 	border-radius: 5px;
 	position: relative;
 	width: 100%;
@@ -54,7 +59,7 @@ form{
 	font-size: 25px;
 	line-height: 80px;
 	margin-bottom: 10px;
-	background: #34495e;
+	/*background: #34495e;*/
 	border-radius: 5px;
 	width: 30%;
 	display: inline-block;
@@ -65,18 +70,31 @@ form{
 	margin-right: 0;
 }
 
+/*.listitem:nth-child(even){
+	-webkit-transform: rotate(3deg);
+}
+
+.listitem:nth-child(odd){
+	-webkit-transform: rotate(-3deg);
+}*/
+
 .listitem:hover{
 	cursor: pointer;
 }
 
+
 .itemselected{
 	color : #1ABC9C;
-	border : 5px solid #1ABC9C;
+	border-color: #1ABC9C;
+	-webkit-box-sizing: border-box;
+	-mox-box-sizing: border-box;
+	box-sizing: border-box;
 }
 
 .content{
 	display: inline-block;
-	width:100%;
+	width:80%;
+	height: 30%;
 	opacity: 1;
 	font-family: cursive;
 	font-style: italic;
@@ -87,12 +105,15 @@ form{
 	position: relative;
 	top:17%;
 	opacity: 1;
+	width: 10%;
 }
 
 .tick{
 	float: left;
-	color: #2ECC71;	
+	/*color: #2ECC71;	*/
+	color: red;
 }
+
 
 .tick:hover, .cross:hover{
 	-webkit-transform: scale(1.3,1.3);
@@ -103,7 +124,9 @@ form{
 
 .cross{
 	float: right;
-	color: #E74C3C;
+	/*color: #E74C3C;*/
+	color: green;
+	right: 8%;
 }
 
 .additem{
@@ -155,7 +178,7 @@ input[type="text"]:focus{
 }
 
 .contentwidth{
-	width: 80%;
+	/*width: 80%;*/
 }
 
 .taskdone{
@@ -163,6 +186,26 @@ input[type="text"]:focus{
 	border-color: #fff;
 }
 
+#inputoptions{
+	width: 100%;
+	position: absolute;
+	z-index: 999;
+	height: 100px;
+	background: #fff;
+	display: none;
+	border-radius: 25px;
+	padding-left: 20%;
+}
+
+#deadline, #category{
+	position: relative;
+	width: 60%;
+}
 
 
-
+.content[contenteditable='true']:active,
+.content[contenteditable='false']:focus,
+{
+	border: none;
+	outline:none;
+}
